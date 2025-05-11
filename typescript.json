@@ -8,6 +8,7 @@
 		"strict": true,
 		"skipLibCheck": true,
 		"allowImportingTsExtensions": true,
+		"forceConsistentCasingInFileNames": true,
 		"noUncheckedIndexedAccess": true,
 		"noEmit": true
 	}
