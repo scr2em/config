@@ -1,10 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "@epic-web/config",
+  "name": "@scr2em/config",
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.1",
   "description": "Reasonable ESLint configs for epic web devs",
   "main": "index.js",
   "type": "module",

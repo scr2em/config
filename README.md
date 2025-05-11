@@ -1,5 +1,5 @@
 <div>
-  <h1 align="center"><a href="https://npm.im/@epic-web/config">👮 @epic-web/config</a></h1>
+  <h1 align="center"><a href="https://npm.im/@scr2em/config">👮 @scr2em/config</a></h1>
   <strong>
     Reasonable ESLint, Prettier, and TypeScript configs for epic web devs
   </strong>
@@ -9,7 +9,7 @@
 </div>
 
 ```
-npm install @epic-web/config
+npm install @scr2em/config
 ```
 
 <div align="center">
@@ -59,7 +59,7 @@ configure anything more than the defaults).
 The easiest way to use this config is in your `package.json`:
 
 ```json
-"prettier": "@epic-web/config/prettier"
+"prettier": "@scr2em/config/prettier"
 ```
 
 <details>
@@ -72,7 +72,7 @@ JavaScript stuff.
 Create a `.prettierrc.js` file in your project root with the following content:
 
 ```js
-import defaultConfig from '@epic-web/config/prettier'
+import defaultConfig from '@scr2em/config/prettier'
 
 /** @type {import("prettier").Options} */
 export default {
@@ -89,7 +89,7 @@ Create a `tsconfig.json` file in your project root with the following content:
 
 ```json
 {
-	"extends": ["@epic-web/config/typescript"],
+	"extends": ["@scr2em/config/typescript"],
 	"include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
 	"compilerOptions": {
 		"paths": {
@@ -103,7 +103,7 @@ Create a `tsconfig.json` file in your project root with the following content:
 Create a `reset.d.ts` file in your project with these contents:
 
 ```typescript
-import '@epic-web/config/reset.d.ts'
+import '@scr2em/config/reset.d.ts'
 ```
 
 <details>
@@ -120,7 +120,7 @@ Create a `eslint.config.js` file in your project root with the following
 content:
 
 ```js
-import { config as defaultConfig } from '@epic-web/config/eslint'
+import { config as defaultConfig } from '@scr2em/config/eslint'
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [...defaultConfig]
