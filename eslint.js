@@ -354,7 +354,11 @@ export const config = [
 		: null,
 
 	hasStorybook
-		? (await import('eslint-plugin-storybook')).configs.recommended
+		? {
+				plugins: {
+					storybook: (await import('eslint-plugin-storybook')).default,
+				},
+			}
 		: null,
 ].filter(Boolean)
 
