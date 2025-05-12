@@ -19,6 +19,7 @@ const hasJestDom = has('@testing-library/jest-dom')
 const hasVitest = has('vitest')
 const hasPlaywright = has('playwright')
 const hasReactQuery = has('@tanstack/react-query')
+const hasStorybook = has('@storybook/react')
 
 const vitestFiles = ['**/__tests__/**/*', '**/*.test.*', '**/*.spec.*']
 const testFiles = ['**/tests/**', '**/#tests/**', ...vitestFiles]
@@ -350,6 +351,10 @@ export const config = [
 						.plugin,
 				},
 			}
+		: null,
+
+	hasStorybook
+		? (await import('eslint-plugin-storybook')).configs.recommended
 		: null,
 ].filter(Boolean)
 
