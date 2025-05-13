@@ -95,7 +95,10 @@ export const config = [
 				},
 				rules: {
 					'react/jsx-key': WARN,
-					"react/self-closing-comp": ERROR
+					"react/self-closing-comp": [ERROR, {
+						"component": true,
+						"html": false
+					}]
 				},
 			}
 		: null,
