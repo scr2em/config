@@ -38,7 +38,8 @@ export const config = [
 			'**/dist/**',
 			'**/coverage/**',
 			'**/*.tsbuildinfo',
-			'**/.next/**'
+			'**/.next/**',
+			'**/storybook-static/**'
 		],
 	},
 
@@ -95,10 +96,13 @@ export const config = [
 				},
 				rules: {
 					'react/jsx-key': WARN,
-					"react/self-closing-comp": [ERROR, {
-						"component": true,
-						"html": false
-					}]
+					'react/self-closing-comp': [
+						ERROR,
+						{
+							component: true,
+							html: false,
+						},
+					],
 				},
 			}
 		: null,
@@ -178,8 +182,22 @@ export const config = [
 						{ checksVoidReturn: false },
 					],
 
-					'@typescript-eslint/no-floating-promises': 'error',
-
+					'@typescript-eslint/naming-convention': [
+						'error',
+						{
+							selector: ['enumMember'],
+							format: ['camelCase'],
+						},
+						{
+							selector: ['variableLike'],
+							format: ['camelCase', 'PascalCase'],
+							leadingUnderscore: 'allow',
+						},
+						{
+							selector: 'typeLike',
+							format: ['PascalCase'],
+						},
+					],
 					// here are rules we've decided to not enable. Commented out rather
 					// than setting them to disabled to avoid them being referenced at all
 					// when config resolution happens.
