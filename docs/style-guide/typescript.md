@@ -328,6 +328,8 @@ Avoid creating any dynamic function that deals with typescript enums
 
 For example, we have
 ```tsx
+
+// ❌ Avoid
 export function getEnumOptions<T extends Enum<T>>(
 	e: T,
 	enumOptions: {
@@ -344,6 +346,22 @@ export function getEnumOptions<T extends Enum<T>>(
 	)
 }
 
+
+// ✅ Good
+<ControlledRadioGroup
+	control={control}
+	options={[
+		{
+			label: t('enable'),
+			value: AccessoryOwnerChangeOption.enable,
+		},
+		{
+			label: t('disable'),
+			value: AccessoryOwnerChangeOption.disable,
+		},
+	]}
+/>
+
 ```
 Although it provides a nice way of adding new options to any dropdown automatically when we modify the enum itself,
 We should avoid using this function at any cost.
@@ -353,3 +371,4 @@ Reason:
 2. The IDE won't understand that some properties of the enum are being used which makes it prune to removal by non-context-aware-peeps
 3. No way to know that the translation keys are being used
 
+So, being explicit and statically analysable at the same time is better for everyone's time
