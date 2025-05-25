@@ -305,3 +305,51 @@ try {
 	console.error(error)
 }
 ```
+
+
+#### Lodash set/get
+
+These are very handy when we are very annoyed about Typescript being Typescript
+
+```tsx
+// ❌ Avoid
+_set(config, 'headers.Authorization', `Bearer ${token}`)
+
+// ❌ Avoid
+_get(event, 'data.slots.tokens.from', null)
+
+
+```
+
+
+#### Dynamic fields
+
+Avoid creating any dynamic function that deals with typescript enums
+
+For example, we have
+```tsx
+export function getEnumOptions<T extends Enum<T>>(
+	e: T,
+	enumOptions: {
+		t: TFunction<['translation', ...string[]]>
+		helperText?: Record<string, string>
+	},
+): OptionType[] {
+	const { helperText, t } = enumOptions
+	const keys = Object.keys(e).filter((key) => isNaN(Number(key)))
+	return keys.map((k) =>
+		helperText
+			? { label: t(k), value: e[k], helperText: t(helperText[e[k]]) }
+			: { label: t(k), value: e[k] },
+	)
+}
+
+```
+Although it provides a nice way of adding new options to any dropdown automatically when we modify the enum itself,
+We should avoid using this function at any cost.
+
+Reason:
+1. not type safe by nature, even if we try.
+2. The IDE won't understand that some properties of the enum are being used which makes it prune to removal by non-context-aware-peeps
+3. No way to know that the translation keys are being used
+

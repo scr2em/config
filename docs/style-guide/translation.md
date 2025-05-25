@@ -179,7 +179,7 @@ function TranslatedText({ id, values = {}, defaultMessage = '' }) {
 ```
 
 
-### 2. RTL Support
+### 3. RTL Support
 - Add support for right-to-left (RTL) languages
 - Test layouts in RTL mode
 - Use CSS logical properties (`start`/`end` instead of `left`/`right`)
