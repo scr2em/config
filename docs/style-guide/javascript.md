@@ -1,4 +1,3 @@
-
 ## JavaScript
 
 This section will include TypeScript guidelines as well.
@@ -580,8 +579,6 @@ const doubledGreaterThanTwoItems = items.filter(n => n > 2).map(n => n * 2)
 
 This makes it easier to add/remove parameters without having to futz around with
 parentheses.
-
-
 
 ### Properties
 

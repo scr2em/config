@@ -1,4 +1,3 @@
-
 ### Types
 
 #### Type Inference
@@ -101,8 +100,6 @@ if (isExampleApp(maybeApp)) {
 }
 ```
 
-
-
 #### Schema Validation
 
 Use schema validation (like Zod) for runtime type checking and type inference
@@ -170,7 +167,6 @@ if (Boolean(user)) {
 }
 ```
 
-
 ### Naming Conventions
 
 Learn and follow [Artem's](https://github.com/kettanaito)
@@ -200,9 +196,9 @@ Key principles:
 3. Names should be Short, Intuitive, and Descriptive (S-I-D)
 4. Avoid contractions and context duplication
 5. Function names should follow the A/HC/LC pattern:
-	- Action (get, set, handle, etc.)
-	- High Context (what it operates on)
-	- Low Context (optional additional context)
+   - Action (get, set, handle, etc.)
+   - High Context (what it operates on)
+   - Low Context (optional additional context)
 
 For example: `getUserMessages`, `handleClickOutside`, `shouldDisplayMessage`
 
@@ -306,7 +302,6 @@ try {
 }
 ```
 
-
 #### Lodash set/get
 
 These are very handy when we are very annoyed about Typescript being Typescript
@@ -317,18 +312,15 @@ _set(config, 'headers.Authorization', `Bearer ${token}`)
 
 // ❌ Avoid
 _get(event, 'data.slots.tokens.from', null)
-
-
 ```
-
 
 #### Dynamic fields
 
 Avoid creating any dynamic function that deals with typescript enums
 
 For example, we have
-```tsx
 
+```tsx
 // ❌ Avoid
 export function getEnumOptions<T extends Enum<T>>(
 	e: T,
@@ -346,9 +338,8 @@ export function getEnumOptions<T extends Enum<T>>(
 	)
 }
 
-
 // ✅ Good
-<ControlledRadioGroup
+;<ControlledRadioGroup
 	control={control}
 	options={[
 		{
@@ -361,14 +352,18 @@ export function getEnumOptions<T extends Enum<T>>(
 		},
 	]}
 />
-
 ```
-Although it provides a nice way of adding new options to any dropdown automatically when we modify the enum itself,
-We should avoid using this function at any cost.
+
+Although it provides a nice way of adding new options to any dropdown
+automatically when we modify the enum itself, We should avoid using this
+function at any cost.
 
 Reason:
+
 1. not type safe by nature, even if we try.
-2. The IDE won't understand that some properties of the enum are being used which makes it prune to removal by non-context-aware-peeps
+2. The IDE won't understand that some properties of the enum are being used
+   which makes it prune to removal by non-context-aware-peeps
 3. No way to know that the translation keys are being used
 
-So, being explicit and statically analysable at the same time is better for everyone's time
+So, being explicit and statically analysable at the same time is better for
+everyone's time

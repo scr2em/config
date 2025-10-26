@@ -39,7 +39,7 @@ export const config = [
 			'**/coverage/**',
 			'**/*.tsbuildinfo',
 			'**/.next/**',
-			'**/storybook-static/**'
+			'**/storybook-static/**',
 		],
 	},
 
